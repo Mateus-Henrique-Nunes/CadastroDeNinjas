@@ -19,11 +19,22 @@ import lombok.ToString;
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name="id")
     private long Id;
+
+    @Column(name="nome")
     private String nome;
+
+
     @Column(unique = true)
     private String email;
+
+    @Column(name="idade")
     private int idade;
+
+    @Column(name="img_url")
+    private String img_Url;
 
 
     @ManyToOne
