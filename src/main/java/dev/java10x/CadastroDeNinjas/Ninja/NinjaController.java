@@ -24,9 +24,9 @@ public class NinjaController {
         return ninjaService.listarPorId(id);
     }
 
-    @GetMapping("/inserir")
-    public String inserirNinja(){
-        return "Inserido";
+    @PostMapping("/criar")
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+        return ninjaService.criarNinja(ninja);
     }
 
     @PutMapping("/alterar")
