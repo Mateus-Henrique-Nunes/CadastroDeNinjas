@@ -9,7 +9,6 @@ import java.util.List;
 @RequestMapping("/ninjas")
 public class NinjaController {
     private NinjaService ninjaService;
-
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
     }
@@ -29,13 +28,13 @@ public class NinjaController {
         return ninjaService.criarNinja(ninja);
     }
 
-    @PutMapping("/alterar")
-    public String alterarNinja(){
-        return"Alterado";
+    @PutMapping("/alterar/{id}")
+    public NinjaModel alterarNinja(@PathVariable long id, @RequestBody NinjaModel ninjaAtualizado){
+        return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
-    @DeleteMapping("/delete")
-    public String deletarNinja(){
-        return "Deletado";
+    @DeleteMapping("/delete/{id}")
+    public void deletarNinja(@PathVariable Long id){
+        ninjaService.deletarNinja(id);
     }
 }
