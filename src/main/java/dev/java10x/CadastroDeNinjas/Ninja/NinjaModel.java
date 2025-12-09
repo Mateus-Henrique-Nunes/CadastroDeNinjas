@@ -19,7 +19,6 @@ import lombok.ToString;
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name="id")
     private long Id;
 
@@ -34,7 +33,10 @@ public class NinjaModel {
     private int idade;
 
     @Column(name="img_url")
-    private String img_Url;
+    private String imgUrl;
+
+    @Column(name="rank")
+    private String rank;
 
 
     @ManyToOne
